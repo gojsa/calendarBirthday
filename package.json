@@ -1,0 +1,18 @@
+{
+  "name": "bojan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "profile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "http": "^0.0.1-security",
+    "mysql": "^2.18.1"
+  }
+}
