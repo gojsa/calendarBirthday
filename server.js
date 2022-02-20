@@ -9,17 +9,17 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-const { getBirthdays,insertBirthday } = require('./controllers/birthday');
-const { send } = require("process");
+const { getBirthdays, insertBirthday, updateBirthDate, deleteBirthDate } = require('./controllers/birthday');
 
-app.get("/get_birthday", (req,res) => {
+
+app.get("/get_birthday", (req, res) => {
     const dateFrom = req.body.date_from;
     const dateTo = req.body.date_to;
-    getBirthdays(dateFrom, dateTo).then((result)=>{
+    getBirthdays(dateFrom, dateTo).then((result) => {
         res.json(result)
     })
 })
-app.post("/insert_birth_date", (req,res) => {
+app.post("/insert_birth_date", (req, res) => {
     const name = req.body.name;
     const photo = req.body.photo;
     const birthDate = req.body.birthdate;
@@ -27,9 +27,30 @@ app.post("/insert_birth_date", (req,res) => {
     const phone = req.body.phone;
     const title = req.body.title;
     const description = req.body.description;
-        insertBirthday(name,photo,birthDate,email,phone,title,description).then(()=>{
-            res.end();
-        })
+    insertBirthday(name, photo, birthDate, email, phone, title, description).then((result) => {
+        res.json(result)
+    })
+})
+app.put("/update_birth_date", (req, res) => {
+    const name = req.body.name;
+    const photo = req.body.photo;
+    const birthDate = req.body.birthdate;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const title = req.body.title;
+    const description = req.body.description;
+    const id = req.body.id;
+
+
+    updateBirthDate(name, photo, birthDate, email, phone, title, description, id).then((result) => {
+        res.json(result)
+    })
+})
+app.delete("/delete_birth_date", (req, res) => {
+    const id = req.body.id;
+    deleteBirthDate(id).then((result) => {
+        res.json(result)
+    })
 })
 
 const port = 5000;
