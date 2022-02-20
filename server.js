@@ -29,6 +29,10 @@ app.post("/insert_birth_date", (req, res) => {
     const description = req.body.description;
     insertBirthday(name, photo, birthDate, email, phone, title, description).then((result) => {
         res.json(result)
+    }).catch(err =>{
+        console.log(err)
+        res.send("Something went wrong, please try later.").status(500);
+        
     })
 })
 app.put("/update_birth_date", (req, res) => {

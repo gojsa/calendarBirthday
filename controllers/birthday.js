@@ -17,10 +17,11 @@ const getBirthdays = (dateFrom, dateTo) => new Promise((res, rejact) => {
             res({
                 success: "",
                 error: "error",
-                message: "Something went wrong, please try later. status code"
+                message: "Something went wrong, please try later."
             })
         } else {
             res(results);
+            
         }
 
     });
