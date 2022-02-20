@@ -31,7 +31,7 @@ app.post("/insert_birth_date", (req, res) => {
         res.json(result)
     }).catch(err =>{
         console.log(err)
-        res.send("Something went wrong, please try later.").status(500);
+        res.send("Something went wrong, please try later!").status(500);
         
     })
 })
